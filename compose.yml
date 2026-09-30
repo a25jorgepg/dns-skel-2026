@@ -18,7 +18,7 @@ services:
       - ./lan/named.conf.options:/etc/bind/named.conf.options
       - ./lan/named.conf.local:/etc/bind/named.conf.local
       - ./lan/db.lan:/etc/bind/db.lan
-      - ./dnsserver/root.hints:/usr/share/dns/root.hints
+      - #./dnsserver/root.hints:/usr/share/dns/root.hints
     networks:
       rededns:
         ipv4_address: 192.168.20.9
