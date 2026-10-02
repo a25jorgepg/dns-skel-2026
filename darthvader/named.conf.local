@@ -1,0 +1,8 @@
+//
+// Do any local configuration here
+//
+
+zone "starwars.lan"{
+    type primary;
+    file "db.starwars.lan";
+};
