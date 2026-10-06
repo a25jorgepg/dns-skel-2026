@@ -16,6 +16,7 @@ services:
         ipv4_address: 192.168.20.10
     volumes:
       - ./darthvader/named.conf.local:/etc/bind/named.conf.local
+      - ./darthvader/db.starwars.lan:/etc/bind/db.starwars.lan
   
   cliente:
     build: cliente
