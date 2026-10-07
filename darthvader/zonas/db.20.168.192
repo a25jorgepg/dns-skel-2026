@@ -1,0 +1,22 @@
+$TTL 86400
+@       IN      SOA     darthvader.starwars.lan. admin.exemplo.com. (
+                        20261006   ; Número de serie
+                        3600       ; Actualización (Refresh)
+                        1800       ; Reintento (Retry)
+                        1209600    ; Caducidade (Expire)
+                        86400 )    ; TTL mínimo
+
+; Servidores de nomes (NS)
+@       IN      NS      darthvader.starwars.lan.
+@       IN      NS      darthsidious.starwars.lan.
+
+; Rexistros PTR
+10           IN  PTR       darthvader.starwars.lan.
+101          IN  PTR       skywalker.starwars.lan.
+111          IN  PTR       skywalker.starwars.lan.
+22           IN  PTR       luke.starwars.lan.
+11           IN  PTR       darthsidious.starwars.lan.
+24           IN  PTR       yoda.starwars.lan.
+25           IN  PTR       yoda.starwars.lan.
+26           IN  PTR       c3p0.starwars.lan.
+

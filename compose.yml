@@ -1,12 +1,12 @@
 services:
-  # mandalorian:
-  #   build: dnsserver
-  #   hostname: mandalorian
-  #   networks:
-  #     rededns:
-  #       ipv4_address: 192.168.20.9
-  #   volumes:
-  #     - ./mandalorian/named.conf.options:/etc/bind/named.conf.options
+  mandalorian:
+    build: dnsserver
+    hostname: mandalorian
+    networks:
+      rededns:
+        ipv4_address: 192.168.20.9
+    volumes:
+      - ./mandalorian/named.conf.options:/etc/bind/named.conf.options
 
   darthvader:
     build: dnsserver
@@ -16,7 +16,8 @@ services:
         ipv4_address: 192.168.20.10
     volumes:
       - ./darthvader/named.conf.local:/etc/bind/named.conf.local
-      - ./darthvader/db.starwars.lan:/etc/bind/db.starwars.lan
+      - ./darthvader/zonas/db.starwars.lan:/etc/bind/db.starwars.lan
+      - ./darthvader/zonas/db.20.168.192:/etc/bind/db.20.168.192
   
   cliente:
     build: cliente
