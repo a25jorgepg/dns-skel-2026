@@ -185,30 +185,53 @@ Address: 192.168.20.111
 
 ### nslookup starwars.lan localhost
 ```
+Server:         localhost
+Address:        127.0.0.1#53
 
+*** Can't find starwars.lan: No answer
 ```
 
 ### nslookup -q=mx starwars.lan localhost
 ```
+Server:         localhost
+Address:        127.0.0.1#53
 
+starwars.lan    mail exchanger = 10 c3p0.starwars.lan.
 ```
 
 ### nslookup -q=ns starwars.lan localhost
 ```
+Server:         localhost
+Address:        127.0.0.1#53
 
+starwars.lan    nameserver = darthvader.starwars.lan.
+starwars.lan    nameserver = darthsidious.starwars.lan.
 ```
 
 ### nslookup -q=soa starwars.lan localhost
 ```
+Server:         localhost
+Address:        127.0.0.1#53
 
+starwars.lan
+        origin = darthvader.starwars.lan
+        mail addr = admin.exemplo.com
+        serial = 20261006
+        refresh = 3600
+        retry = 1800
+        expire = 1209600
+        minimum = 86400
 ```
 
 ### nslookup -q=txt lenda.starwars.lan localhost
 ```
+Server:         localhost
+Address:        127.0.0.1#53
 
+lenda.starwars.lan      text = "Que a forza te acompanhe"
 ```
 
 ### nslookup 192.168.20.11 localhost
 ```
-
+11.20.168.192.in-addr.arpa      name = darthsidious.starwars.lan.
 ```
