@@ -1,6 +1,6 @@
 $TTL 86400
 @       IN      SOA     darthvader.starwars.lan. admin.exemplo.com. (
-                        20261006          ; Número de serie
+                        20261009          ; Número de serie
                         3600       ; Actualización (Refresh)
                         1800       ; Reintento (Retry)
                         1209600    ; Caducidade (Expire)
@@ -26,3 +26,4 @@ yoda           IN  A       192.168.20.24
 yoda           IN  A       192.168.20.25
 c3p0           IN  A       192.168.20.26
 palpatine      IN  CNAME   darthsidious.starwars.lan.
+chewbacca      IN  A       192.168.20.28

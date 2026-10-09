@@ -11,6 +11,8 @@ services:
   darthvader:
     build: dnsserver
     hostname: darthvader
+    depends_on:
+      - mandalorian
     networks:
       rededns:
         ipv4_address: 192.168.20.10
@@ -18,7 +20,19 @@ services:
       - ./darthvader/named.conf.local:/etc/bind/named.conf.local
       - ./darthvader/zonas/db.starwars.lan:/etc/bind/db.starwars.lan
       - ./darthvader/zonas/db.20.168.192:/etc/bind/db.20.168.192
-  
+
+  darthsidious:
+    build: dnsserver
+    hostname: darthsidious
+    depends_on:
+      - mandalorian
+      - darthvader
+    networks:
+      rededns:
+        ipv4_address: 192.168.20.11
+    volumes:
+      - ./darthsidious/named.conf.local:/etc/bind/named.conf.local # Non se necesitan as outras rutas de archivos porque ao referencialos no named.conf.local xa se fai a transferencia automática
+    
   cliente:
     build: cliente
     hostname: cliente1
