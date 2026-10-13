@@ -1,6 +1,8 @@
 # Documento de Respuesta 
 ---
-## Salida dig @localhost xunta.gal no equipo darthvader
+## Primeira parte
+---
+### Salida dig @localhost xunta.gal no equipo darthvader
 ```
 root@darthvader:/var/cache/bind# dig @localhost xunta.gal
 
@@ -29,14 +31,14 @@ xunta.gal.              28800   IN      A       85.91.64.109
 
 ---
 
-## Contido ficheiro named.conf.options de mandalorian
+### Contido ficheiro named.conf.options de mandalorian
 ```
 options {
 	directory "/var/cache/bind";
 		forwarders{192.168.20.10;};
 };
 ```
-## Salida dig @localhost santiagodecompostela.gal
+### Salida dig @localhost santiagodecompostela.gal
 
 ```
 root@mandalorian:~# dig @localhost santiagodecompostela.gal
@@ -67,7 +69,7 @@ root@mandalorian:~#
 
 ---
 
-## Contido arquivo de configuración da zona starwars.lan
+### Contido arquivo de configuración da zona starwars.lan
 
 ```
 $TTL 86400
@@ -101,7 +103,7 @@ palpatine      IN  CNAME   darthsidious.starwars.lan.
 
 ```
 
-## Contido arquivo /etc/bind/named.conf.local *(Zona de resolución Directa)*
+### Contido arquivo /etc/bind/named.conf.local *(Zona de resolución Directa)*
 
 ```
 //
@@ -115,7 +117,7 @@ zone "starwars.lan"{
 ```
 ---
 
-## Contido arquivo de configuración da zona inversa
+### Contido arquivo de configuración da zona inversa
 
 ```
 $TTL 86400
@@ -141,7 +143,7 @@ $TTL 86400
 26           IN  PTR       c3p0
 ```
 
-## Contido arquivo /etc/bind/named.conf.local *(Zona de resolución inversa)*
+### Contido arquivo /etc/bind/named.conf.local *(Zona de resolución inversa)*
 
 ```
 //
@@ -160,9 +162,9 @@ zone "20.168.192.in-addr.arpa"{
 ```
 ---
 
-## Salida dos comandos nslookup
+### Salida dos comandos nslookup
 
-### nslookup darthvader.starwars.lan localhost
+#### nslookup darthvader.starwars.lan localhost
 
 ```
 Server:         localhost
@@ -172,7 +174,7 @@ Name:   darthvader.starwars.lan
 Address: 192.168.1.10
 ```
 
-### nslookup skywalker.starwars.lan localhost
+#### nslookup skywalker.starwars.lan localhost
 ```
 Server:         localhost
 Address:        127.0.0.1#53
@@ -183,7 +185,7 @@ Name:   skywalker.starwars.lan
 Address: 192.168.20.111
 ```
 
-### nslookup starwars.lan localhost
+#### nslookup starwars.lan localhost
 ```
 Server:         localhost
 Address:        127.0.0.1#53
@@ -191,7 +193,7 @@ Address:        127.0.0.1#53
 *** Can't find starwars.lan: No answer
 ```
 
-### nslookup -q=mx starwars.lan localhost
+#### nslookup -q=mx starwars.lan localhost
 ```
 Server:         localhost
 Address:        127.0.0.1#53
@@ -199,7 +201,7 @@ Address:        127.0.0.1#53
 starwars.lan    mail exchanger = 10 c3p0.starwars.lan.
 ```
 
-### nslookup -q=ns starwars.lan localhost
+#### nslookup -q=ns starwars.lan localhost
 ```
 Server:         localhost
 Address:        127.0.0.1#53
@@ -208,7 +210,7 @@ starwars.lan    nameserver = darthvader.starwars.lan.
 starwars.lan    nameserver = darthsidious.starwars.lan.
 ```
 
-### nslookup -q=soa starwars.lan localhost
+#### nslookup -q=soa starwars.lan localhost
 ```
 Server:         localhost
 Address:        127.0.0.1#53
@@ -223,7 +225,7 @@ starwars.lan
         minimum = 86400
 ```
 
-### nslookup -q=txt lenda.starwars.lan localhost
+#### nslookup -q=txt lenda.starwars.lan localhost
 ```
 Server:         localhost
 Address:        127.0.0.1#53
@@ -231,7 +233,15 @@ Address:        127.0.0.1#53
 lenda.starwars.lan      text = "Que a forza te acompanhe"
 ```
 
-### nslookup 192.168.20.11 localhost
+#### nslookup 192.168.20.11 localhost
 ```
 11.20.168.192.in-addr.arpa      name = darthsidious.starwars.lan.
 ```
+---
+
+## Segunda parte
+---
+
+### Tansferencia de zona 
+
+![Estado de transferencia de zona](./images/estado%20de%20transfer%20zona%20primaria.png)

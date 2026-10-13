@@ -1,5 +1,4 @@
 options {
 	directory "/var/cache/bind";
-
 		forwarders{192.168.20.10;};
 };
