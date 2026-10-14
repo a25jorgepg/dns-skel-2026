@@ -33,6 +33,35 @@ services:
     volumes:
       - ./darthsidious/named.conf.local:/etc/bind/named.conf.local # Non se necesitan as outras rutas de archivos porque ao referencialos no named.conf.local xa se fai a transferencia automática
     
+  delegado:
+    build: dnsserver
+    hostname: delegado
+    depends_on:
+      - mandalorian
+      - darthvader
+      - darthsidious
+    networks:
+      rededns:
+        ipv4_address: 192.168.20.8
+    volumes:
+      - ./delegado/named.conf.local:/etc/bind/named.conf.local
+      - ./delegado/zonas/db.test.starwars.lan:/etc/bind/db.test.starwars.lan
+
+  lukeskywalker:
+    build: dnsserver
+    hostname: lukeskywalker
+    depends_on:
+      - mandalorian
+      - darthvader
+      - darthsidious
+      - delegado
+    networks:
+      rededns:
+        ipv4_address: 192.168.20.22
+    volumes:
+      - ./lukeskywalker/named.conf.local:/etc/bind/named.conf.local
+      - ./lukeskywalker/zonas/db.test.starwars.lan:/etc/bind/db.test.starwars.lan
+
   cliente:
     build: cliente
     hostname: cliente1
@@ -46,6 +75,7 @@ services:
     dns: 
     - 192.168.20.10
     - 192.168.20.11
+    - 192.168.20.8
 
 networks:
   rededns:

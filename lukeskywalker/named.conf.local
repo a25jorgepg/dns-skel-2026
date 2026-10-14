@@ -1,0 +1,8 @@
+//
+// Do any local configuration here
+//
+
+zone "mestre.starwars.lan"{
+    type primary;
+    file "/etc/bind/db.mestre.starwars.lan";
+};

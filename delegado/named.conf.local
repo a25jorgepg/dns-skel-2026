@@ -1,17 +1,9 @@
+//
+// Do any local configuration here
+//
 
-
-
-zone "imperio.starwars.lan" {
-	type primary;
-    file "/etc/bind/db.imperio.starwars.lan";
+zone "test.starwars.lan"{
+    type primary;
+    file "/etc/bind/db.test.starwars.lan";
+    allow-transfer {key "chave-starwars"; };
 };
-
-// zone "starwars.lan" {
-//     type forward;
-//     forward only;
-//     forwarders {
-//         192.168.20.10;
-//     };
-// };
-
-

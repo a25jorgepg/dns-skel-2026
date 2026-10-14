@@ -1,0 +1,13 @@
+$TTL 86400
+@       IN      SOA     delegado.test.starwars.lan. admin.exemplo.com. (
+                        20261013          ; Número de serie
+                        3600       ; Actualización (Refresh)
+                        1800       ; Reintento (Retry)
+                        1209600    ; Caducidade (Expire)
+                        86400 )    ; TTL mínimo
+
+@       IN      NS      delegado.test.starwars.lan.
+delegado    IN      A       192.168.20.8
+abc     IN      A       192.168.30.45
+def     IN      A       142.18.36.5
+ghi     IN      A       162.18.15.4
